@@ -376,7 +376,10 @@ class DownloadManager:
             job = Job.fetch(get_current_job().id, connection=Redis(host=self.__cm.get_app_params().get('_redis_host'),
                                                                    port=self.__cm.get_app_params().get('_redis_port'),
                                                                    username=self.__cm.get_app_params().get('_redis_username'),
-                                                                   password=self.__cm.get_app_params().get('_redis_password')))
+                                                                   password=self.__cm.get_app_params().get('_redis_password'),
+                                                                    ssl=True,                # Enable SSL
+                                                                    ssl_cert_reqs=None,      # If the server's certificate is self-signed, you might need this line
+                                                                    ssl_context=ssl.create_default_context()))
             filename_info = job.meta.get('filename_info')
 
         if 'filename_info' in inspect.getfullargspec(ydl_api_hooks.post_download_handler).args:
