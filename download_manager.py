@@ -3,6 +3,7 @@ import functools
 import logging
 from urllib.parse import urlparse
 import os
+import ssl
 
 import yt_dlp as ydl
 from redis import Redis

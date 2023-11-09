@@ -11,6 +11,7 @@ import re
 import pathlib
 import inspect
 from mergedeep import merge
+import ssl
 
 import download_manager
 from params import ydl_api_hooks
