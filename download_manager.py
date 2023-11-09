@@ -335,10 +335,11 @@ class DownloadManager:
         if self.enable_redis is not None and self.enable_redis is True:
             queue = Queue('ydl_api_ng', connection=Redis(host=self.__cm.get_app_params().get('_redis_host'),
                                                          port=self.__cm.get_app_params().get('_redis_port'),
-                                                         username=self.__cm.get_app_params().get('_redis_username'),  # Add this line for username
-                                                         password=self.__cm.get_app_params().get('_redis_password'),
-                                                        ssl=True,                # Enable SSL
-                                                        ssl_cert_reqs="none"))
+                                                         #username=self.__cm.get_app_params().get('_redis_username'),  # Add this line for username
+                                                         #password=self.__cm.get_app_params().get('_redis_password'),
+                                                        #ssl=True,                # Enable SSL
+                                                        #ssl_cert_reqs="none"
+                                                        ))
 
             redis_meta = {
                 'programmation_id': self.programmation_id,
@@ -378,10 +379,11 @@ class DownloadManager:
         if self.enable_redis:
             job = Job.fetch(get_current_job().id, connection=Redis(host=self.__cm.get_app_params().get('_redis_host'),
                                                                    port=self.__cm.get_app_params().get('_redis_port'),
-                                                                   username=self.__cm.get_app_params().get('_redis_username'),
-                                                                   password=self.__cm.get_app_params().get('_redis_password'),
-                                                                    ssl=True,                # Enable SSL
-                                                                    ssl_cert_reqs="none"))
+                                                                   #username=self.__cm.get_app_params().get('_redis_username'),
+                                                                   #password=self.__cm.get_app_params().get('_redis_password'),
+                                                                    #ssl=True,                # Enable SSL
+                                                                    #ssl_cert_reqs="none"
+                                                                    ))
             filename_info = job.meta.get('filename_info')
 
         if 'filename_info' in inspect.getfullargspec(ydl_api_hooks.post_download_handler).args:

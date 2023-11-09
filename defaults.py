@@ -15,7 +15,7 @@ app_defaults = {
     '_unit_test': True,
     '_enable_redis': True,
     '_redis_ttl': 3600,
-    '_redis_host': 'oregon-redis.render.com',
+    '_redis_host': 'red-cl69a6fh0hec73evk970',
     '_redis_port': 6379
 }
 

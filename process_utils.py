@@ -25,10 +25,11 @@ class ProcessUtils:
                 '_enable_redis') is True:
             self.redis = Redis(host=self.__cm.get_app_params().get('_redis_host'),
                                port=self.__cm.get_app_params().get('_redis_port'),
-                               username=self.__cm.get_app_params().get('_redis_username'),
-                               password=self.__cm.get_app_params().get('_redis_password'),
-                               ssl=True,                # Enable SSL
-                               ssl_cert_reqs="none")
+                               #username=self.__cm.get_app_params().get('_redis_username'),
+                               #password=self.__cm.get_app_params().get('_redis_password'),
+                               #ssl=True,                # Enable SSL
+                               #ssl_cert_reqs="none"
+                               )
             self.queue = Queue('ydl_api_ng', connection=self.redis)
             self.registries = {'pending_job': self.queue,
                                'started_job': self.queue.started_job_registry,
